@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        #Text1 {
+            height: 32px;
+            width: 112px;
+            margin-left: 488px;
+            margin-top: 71px;
+            margin-bottom: 2px;
+        }
+        #Text2 {
+            height: 29px;
+            width: 122px;
+            margin-left: 483px;
+            margin-top: 3px;
+        }
+        #Button1 {
+            width: 121px;
+            height: 38px;
+            margin-left: 31px;
+            margin-top: 48px;
+        }
+        #Text3 {
+            width: 134px;
+            height: 39px;
+            margin-left: 497px;
+            margin-top: 119px;
+        }
+    </style>
+</head>
+<center>
+<body>
+     <h1>CLOSURE CALCULATOR</h1>
+    <p style="height: 539px; background-image: url('images (1).jpg');">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 <br/>
+								 <br/>
+								 
+								<br/>
+								 <br/>
+								<br/> Num1<br/><input id="n1" type="text" /><br/>
+					                 
+        
+        
+                             <br/>Num 2:<br/><input id="n2" type="text" /><br />
+					             <br/>
+        
+        <select id="operator"><br/>
+		<option value="+">+</option>
+		<option value="-">-</option>
+		<option value="/">/</option>
+		<option value="X">X</option>
+		
+		                 </select>
+						 <br/>
+						 <br/>
+		                          <button onclick='calc()'>calculate</button><br/>
+								  <br/>
+		
+                                <input  type="text" id="result"/><br/>
+								<br/>
+
+        <script>
+            function sum(a) {
+                return function (b) {
+                    return a + b;
+                }
+            }
+            function min(a) {
+                return function (b) {
+                    return a - b;
+                }
+            }
+
+            function div(a) {
+                return function (b) {
+                    return a / b;
+                }
+            }
+            function mul(a) {
+                return function (b) {
+                    return a * b;
+                }
+            }
+
+
+            function calc() {
+
+                var n1 = parseInt(document.getElementById('n1').value);
+
+                var n2 = parseInt(document.getElementById('n2').value);
+
+                var oper = document.getElementById('operator').value;
+
+                if (oper === '+') {
+                    var sw = sum(n1);
+
+
+                    document.getElementById('result').value = sw(n2);
+                }
+
+                if (oper === '-') {
+                    var sw = min(n1);
+                    document.getElementById('result').value = sw(n2);
+                }
+                if (oper === '/') {
+                    var sw = div(n1);
+                    document.getElementById('result').value = sw(n2);
+                }
+                if (oper === 'X') {
+                    var sw = mul(n1);
+                    document.getElementById('result').value = sw(n2);
+                }
+
+            }
+			if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+        
+        
+        
+        
+
+</body>
+</center>
+<script src="sw.js"></script>
+
+</html>
